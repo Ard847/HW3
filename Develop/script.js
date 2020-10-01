@@ -83,13 +83,13 @@ function generatePassword(){
         for(var i = 0; i < 31; i++){
           pass[i + (length-1)*3] = speciallist[Math.floor(Math.random()*30)]
         }
-        a.push(numlist[Math.floor(Math.random()*30)])
+        a.push(speciallist[Math.floor(Math.random()*30)])
         a_len++
       }
 
   
   for(var i = a_len; i < length ; i++){
-    a.push(pass[Math.floor(Math.random()*pass.length)])
+    a.push(pass[i])
   }
   console.log(pass)
   console.log(a.length)
