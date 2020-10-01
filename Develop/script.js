@@ -46,26 +46,21 @@ function generatePassword(){
   }
   var pass = []
   var a = []
-  var a_len = 0
+ 
       if(lower == 'yes'){
         var lowerlist = ['a',	'b'	,'c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
         for(var i = 0 ; i < length; i++){
-        pass[i] = lowerlist[Math.floor(Math.random()*25)]
+        pass.push(lowerlist[Math.floor(Math.random()*26)])
         }
-        a.push(lowerlist[Math.floor(Math.random()*25)])
-        a_len++
+        a.push(lowerlist[Math.floor(Math.random()*26)])
+        
       }
       if(upper == 'yes'){
-        var low = ['a',	'b'	,'c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-        var upperlist = []
-        for(var i = 0; i < 26; i++){
-          upperlist[i] = lowerlist[i].toUpperCase()
-        }
+        var upperlist = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','X','W','Y','Z']
         for(var i = 0; i < length; i++){
-        pass[i + (length-1)] = upperlist[Math.floor(Math.random()*25)]
+        pass.push(upperlist[Math.floor(Math.random()*26)])
         }
-        a.push(upperlist[Math.floor(Math.random()*25)])
-        a_len++
+        a.push(upperlist[Math.floor(Math.random()*26)])
       }
       if(numeric == 'yes'){
         var numlist = []
@@ -73,28 +68,27 @@ function generatePassword(){
           numlist[i] = i
         }
         for(var i = 0; i < 10; i++){
-          pass[i + (length-1)*2] = numlist[Math.floor(Math.random()*9)]
+          pass.push(numlist[Math.floor(Math.random()*10)])
       }
-      a.push(numlist[Math.floor(Math.random()*9)])
-      a_len++
+      a.push(numlist[Math.floor(Math.random()*10)])
+  
     }
       if(special == 'yes'){
         var speciallist = " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~".split("")
         for(var i = 0; i < 31; i++){
-          pass[i + (length-1)*3] = speciallist[Math.floor(Math.random()*30)]
+          pass.push(speciallist[Math.floor(Math.random()*31)])
         }
         a.push(speciallist[Math.floor(Math.random()*30)])
-        a_len++
+      
       }
-
-  
-  for(var i = a_len; i < length ; i++){
-    a.push(pass[i])
+  for(var i = a.length; i < length; i++){
+    a.push(pass[Math.floor(Math.random()*pass.length)])
   }
-  console.log(pass)
+  a = a.join('')
   console.log(a.length)
   console.log(a)
- 
+  console.log(pass)
+  return a
 }
 
 // Add event listener to generate button
