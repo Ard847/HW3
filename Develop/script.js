@@ -85,9 +85,7 @@ function generatePassword(){
     a.push(pass[Math.floor(Math.random()*pass.length)])
   }
   a = a.join('')
-  console.log(a.length)
-  console.log(a)
-  console.log(pass)
+ 
   return a
 }
 
